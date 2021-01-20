@@ -1,8 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+
+import Counter from "./comp/Counter.js";
+
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+function App () {
+  const [ level, setLevel ] = useState(1);
+  const [ gear, setGear ] = useState(0);
+  const [ mod, setMod ] = useState(0);
+  const [ isMale, setMale ] = useState(true);
+
+  const swapGender = () => setMale(prev => !prev);
+
+  let total = level + gear + mod;
+
+  return (
+    <div className="App">
+      <h1>Munchkin Strength Tracker</h1>
+
+      <h1>{total}</h1>
+      <button onClick={swapGender}>{isMale ? `♂` : `♀`}</button>
+
+      <hr/>
+
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <Counter
+                name = "Level"
+                func = {level => setLevel(level)}
+                val = {level}
+                min={1}
+              />
+            </td>
+            <td>
+              <Counter
+                name = "Gear"
+                func = {gear => setGear(gear)}
+                val = {gear}
+              />
+            </td>
+            <td>
+              <Counter
+                name = "Modifiers"
+                func = {mod => setMod(mod)}
+                val = {mod}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,8 +62,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
