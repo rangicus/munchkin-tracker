@@ -4,3 +4,8 @@ table {
   text-align: center;
   table-layout: fixed;
 }
+
+.diceHolder > svg {
+  display: block;
+  margin: auto;
+}

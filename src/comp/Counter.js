@@ -12,10 +12,22 @@ function Counter (props) {
     
     return (
         <div>
-            <span>{name}</span> <br/>
-            <button onClick={() => change(1)}>+1</button> <br/>
+            <span
+                style = {{ fontWeight: `bold` }}
+            >{name}</span> <br/>
+
+            <button
+                onClick={() => change(1)}
+                className = "btn btn-success"
+            >+1</button> <br/>
+
             <span>{props.val}</span> <br/>
-            <button onClick={() => change(-1)}>-1</button>
+
+            <button
+                onClick={() => change(-1)}
+                className = "btn btn-danger"
+            >-1</button>
+
         </div>
     );
 }
