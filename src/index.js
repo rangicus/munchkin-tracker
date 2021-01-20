@@ -56,9 +56,9 @@ function App () {
   return (
     <div className="App">
       {/* Munchkin Stuff */}
-      <h1 className="text-center">Munchkin</h1>
+      <h1 className="text-center text-white">Munchkin</h1>
 
-      <h1 className="text-center">{total}</h1>
+      <h1 className="text-center text-white">{total}</h1>
 
       <div className="text-center">
         <button className="btn btn-light" onClick={swapGender}> <FontAwesomeIcon icon={isMale ? faMars : faVenus} /> </button>
@@ -94,9 +94,9 @@ function App () {
       <hr/>
 
       {/* Monster Stuff */}
-      <h2 className="text-center">Monster Stats</h2>
+      <h2 className="text-center text-white">Monster Stats</h2>
 
-      <h1 className="text-center">{monsterTotal}</h1>
+      <h1 className="text-center text-white">{monsterTotal}</h1>
       <div className="text-center">
         <button className="btn btn-warning" onClick={resetMonster}>
           <FontAwesomeIcon icon={faUndo} />

@@ -14,6 +14,7 @@ function Counter (props) {
         <div>
             <span
                 style = {{ fontWeight: `bold` }}
+                className = "text-white"
             >{name}</span> <br/>
 
             <button
@@ -21,7 +22,7 @@ function Counter (props) {
                 className = "btn btn-success"
             >+1</button> <br/>
 
-            <span>{props.val}</span> <br/>
+            <span className="text-white">{props.val}</span> <br/>
 
             <button
                 onClick={() => change(-1)}
