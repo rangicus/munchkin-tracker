@@ -24,6 +24,7 @@ function App () {
   const swapGender = () => setMale(prev => !prev);
   
   const resetPlayer = () => { setLevel(1); setGear(0); setMod(0); }
+  const resetPlayerMod = () => { setMod(0); }
 
   // Monster
   const [ monsterLevel, setMonsterLevel ] = useState(0);
@@ -71,24 +72,48 @@ function App () {
       <hr/>
 
       <table><tbody><tr>
-        <td><Counter
-          name = "Level"
-          func = {level => setLevel(level)}
-          val = {level}
-          min={1}
-        /></td>
+        <td>
+          <div className="text-center">
+            <button className="btn btn-warning" onClick={() => setLevel(0)}>
+              <FontAwesomeIcon icon={faUndo} />
+            </button>
+          </div>
 
-        <td><Counter
-          name = "Gear"
-          func = {gear => setGear(gear)}
-          val = {gear}
-        /></td>
+          <Counter
+            name = "Level"
+            func = {level => setLevel(level)}
+            val = {level}
+            min = {1}
+          />
+        </td>
 
-        <td><Counter
-          name = "Modifiers"
-          func = {mod => setMod(mod)}
-          val = {mod}
-        /></td>
+        <td>
+          <div className="text-center">
+            <button className="btn btn-warning" onClick={() => setGear(0)}>
+              <FontAwesomeIcon icon={faUndo} />
+            </button>
+          </div>
+
+          <Counter
+            name = "Gear"
+            func = {gear => setGear(gear)}
+            val = {gear}
+          />
+        </td>
+
+        <td>
+          <div className="text-center">
+            <button className="btn btn-warning" onClick={() => setMod(0)}>
+              <FontAwesomeIcon icon={faUndo} />
+            </button>
+          </div>
+
+          <Counter
+            name = "Modifiers"
+            func = {mod => setMod(mod)}
+            val = {mod}
+          />
+        </td>
       </tr></tbody></table>
       
       <hr/>
